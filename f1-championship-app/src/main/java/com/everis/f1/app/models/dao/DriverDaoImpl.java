@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.f1.app.models.entity.Driver;
 
-@Repository
+@Repository("driverDaoJPA")
 public class DriverDaoImpl implements IDriverDao {
 
 	@PersistenceContext
