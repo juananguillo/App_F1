@@ -20,7 +20,7 @@ public class Driver implements Serializable {
 	private String picture;
 	private String name;
 	private String team;
-	private Map<String, String> races;
+	//private Map<String, String> races;
 
 	private static final long serialVersionUID = 1L;
 
@@ -55,7 +55,7 @@ public class Driver implements Serializable {
 	public void setTeam(String team) {
 		this.team = team;
 	}
-
+/*
 	public Map<String, String> getRaces() {
 		return races;
 	}
@@ -67,5 +67,5 @@ public class Driver implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+*/
 }
