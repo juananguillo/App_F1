@@ -17,6 +17,7 @@ public class Driver implements Serializable {
 	@GeneratedValue(generator = "uuid")
 	@Column(name = "_id")
 	private String id;
+	private Integer age;
 	private String picture;
 	private String name;
 	private String team;
@@ -55,6 +56,17 @@ public class Driver implements Serializable {
 	public void setTeam(String team) {
 		this.team = team;
 	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	
+	
 /*
 	public Map<String, String> getRaces() {
 		return races;

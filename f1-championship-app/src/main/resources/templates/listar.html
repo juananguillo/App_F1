@@ -20,7 +20,7 @@
 		<tbody>
 			<tr th:each="drivers, i: ${drivers}">
 				<td th:text=${drivers.picture}></td>
-				<td th:text=${i.index}></td>
+				<td th:text=${i.index+1}></td>
 				<td th:text=${drivers.name}></td>
 				<td th:text=${drivers.team}></td>
 			</tr>
