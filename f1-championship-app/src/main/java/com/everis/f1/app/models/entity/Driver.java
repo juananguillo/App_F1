@@ -3,7 +3,10 @@ package com.everis.f1.app.models.entity;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,9 +24,17 @@ public class Driver implements Serializable {
 	private String picture;
 	private String name;
 	private String team;
-	//private Map<String, String> races;
+	@Embedded
+	@AttributeOverrides(  {
+		@AttributeOverride(name="race", column = @Column(name="race")),
+		@AttributeOverride(name="time", column = @Column(name="time"))
+	})
+	private Race races;
 
 	private static final long serialVersionUID = 1L;
+	
+	
+	
 
 	public String getId() {
 		return id;
@@ -64,20 +75,15 @@ public class Driver implements Serializable {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
-	
-	
-/*
-	public Map<String, String> getRaces() {
+
+	public Race getRaces() {
 		return races;
 	}
 
-	public void setRaces(Map<String, String> races) {
+	public void setRaces(Race races) {
 		this.races = races;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-*/
+	
+	
+	
 }
