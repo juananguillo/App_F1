@@ -1,41 +1,36 @@
 package com.everis.f1.app.models.entity;
 
-import java.io.Serializable;
-import java.util.Map;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
-@Entity
-@Table(name = "drivers")
-public class Driver implements Serializable {
+import com.google.gson.annotations.SerializedName;
 
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@Column(name = "_id")
+
+
+
+
+public class Driver {
+	@SerializedName(value = "_id")
 	private String id;
 	private Integer age;
 	private String picture;
 	private String name;
 	private String team;
-	@Embedded
-	@AttributeOverrides(  {
-		@AttributeOverride(name="race", column = @Column(name="race")),
-		@AttributeOverride(name="time", column = @Column(name="time"))
-	})
-	private Race races;
+	private List<Race> races;
 
-	private static final long serialVersionUID = 1L;
-	
-	
-	
 
+	public Driver() {
+	}
+
+	public Driver(String id, Integer age, String picture, String name, String team, List<Race> races) {
+		this.id = id;
+		this.age = age;
+		this.picture = picture;
+		this.name = name;
+		this.team = team;
+		this.races = races;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -76,13 +71,20 @@ public class Driver implements Serializable {
 		this.age = age;
 	}
 
-	public Race getRaces() {
+	public List<Race> getRaces() {
 		return races;
 	}
 
-	public void setRaces(Race races) {
+	public void setRaces(List<Race> races) {
 		this.races = races;
 	}
+
+	@Override
+	public String toString() {
+		return "Driver [id=" + id + ", age=" + age + ", picture=" + picture + ", name=" + name + ", team=" + team
+				+ ", races=" + races + "]";
+	}
+
 	
 	
 	

@@ -1,16 +1,19 @@
 package com.everis.f1.app.models.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
-@Embeddable
+
+
 public class Race {
-	@Column(name = "race")
 	private String name;
 	private String time;
-	
-	
-	
+
+	public Race() {
+		
+	}
+	public Race(String name, String time) {
+		this.name = name;
+		this.time = time;
+	}
 	public String getName() {
 		return name;
 	}
