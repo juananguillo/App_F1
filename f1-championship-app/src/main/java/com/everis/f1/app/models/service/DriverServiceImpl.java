@@ -1,14 +1,18 @@
 package com.everis.f1.app.models.service;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-
+import java.util.TimeZone;
 
 import org.springframework.stereotype.Service;
 
@@ -43,17 +47,22 @@ public class DriverServiceImpl implements IDriverService {
             // Convert JSON File to Java Object
             //Driver driver = gson.fromJson(reader, Driver.class);
         	 List<Driver> driver = new Gson().fromJson(reader, new TypeToken<List<Driver>>() {}.getType());
-            
-        	
         	 for (Driver driver2 : driver) {
 				drivers.add(driver2);
+				
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-            
+        	 Collections.sort(drivers, new Driver());
+           
             
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 		return drivers;
 	}
 
@@ -109,7 +118,7 @@ public class DriverServiceImpl implements IDriverService {
 					
 		 }
 		
-			
+		 Collections.sort(driverforrace, new Driver());
     	 
 		return driverforrace;
 	}

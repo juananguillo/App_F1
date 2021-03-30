@@ -6,6 +6,7 @@ package com.everis.f1.app.models.entity;
 public class Race {
 	private String name;
 	private String time;
+	
 
 	public Race() {
 		

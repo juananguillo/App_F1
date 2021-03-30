@@ -1,15 +1,15 @@
 package com.everis.f1.app.models.entity;
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.google.gson.annotations.SerializedName;
 
-
-
-
-
-public class Driver {
+public class Driver implements Comparator<Driver> {
 	@SerializedName(value = "_id")
 	private String id;
 	private Integer age;
@@ -17,7 +17,6 @@ public class Driver {
 	private String name;
 	private String team;
 	private List<Race> races;
-
 
 	public Driver() {
 	}
@@ -30,7 +29,7 @@ public class Driver {
 		this.team = team;
 		this.races = races;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -85,7 +84,47 @@ public class Driver {
 				+ ", races=" + races + "]";
 	}
 
-	
-	
-	
+	@Override
+	public int compare(Driver o1, Driver o2) {
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		formato.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+		List<Race> r1 = o1.getRaces();
+		List<Race> r2 = o2.getRaces();
+		long num1 = 0;
+		long num2 = 0;
+
+		for (Race race : r1) {
+			Date date;
+			try {
+				date = formato.parse("1970-01-01 " + race.getTime());
+				num1 += date.getTime();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		for (Race race : r2) {
+			Date date;
+			try {
+				date = formato.parse("1970-01-01 " + race.getTime());
+				num2 += date.getTime();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		if (num1 < num2) {
+			return -1;
+		} else if (num1 == num2) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
 }
