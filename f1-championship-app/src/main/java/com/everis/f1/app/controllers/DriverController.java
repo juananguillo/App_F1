@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.service.IDriverService;
 
@@ -20,22 +19,23 @@ import com.everis.f1.app.models.service.IDriverService;
 public class DriverController {
 	@Autowired
 	private IDriverService driverservice;
+
 	@GetMapping("/ranking")
- public List<Driver> listar() {
-		 System.out.println(3);
-	 return driverservice.findAll();
-	
- }
-	
+	public List<Driver> listar() {
+		System.out.println(3);
+		return driverservice.findAll();
+
+	}
+
 	@GetMapping("/driver")
-	 public Driver getid(HttpServletRequest request) {
+	public Driver getid(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		 return driverservice.getdriver(id);
-	 }	
-	
+		return driverservice.getdriver(id);
+	}
+
 	@RequestMapping(value = "/ranking", params = "id")
-	 public List<Driver>getraceid(@RequestParam String id) {
-		 return driverservice.getraces(id);
-	 }	
-	
+	public List<Driver> getraceid(@RequestParam String id) {
+		return driverservice.getraces(id);
+	}
+
 }
