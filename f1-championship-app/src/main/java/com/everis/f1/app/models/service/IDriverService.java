@@ -7,4 +7,5 @@ import com.everis.f1.app.models.entity.Driver;
 
 public interface IDriverService {
 	public ArrayList<Driver> findAll();
+	public Driver getdriver(String id);
 }

@@ -41,8 +41,7 @@ public class DriverServiceImpl implements IDriverService {
             // Convert JSON File to Java Object
             //Driver driver = gson.fromJson(reader, Driver.class);
         	 List<Driver> driver = new Gson().fromJson(reader, new TypeToken<List<Driver>>() {}.getType());
-            // print staff 
-           // System.out.println(driver);
+            
         	 driver.forEach(System.out::println);
         	 for (Driver driver2 : driver) {
 				drivers.add(driver2);
@@ -55,6 +54,34 @@ public class DriverServiceImpl implements IDriverService {
         }
 		return drivers;
 	}
+
+
+
+	@Override
+	public Driver getdriver(String id) {
+		Gson gson = new Gson();
+		 Driver d = null;
+        try (Reader reader = new FileReader("C:\\Users\\jguillol\\Desktop\\Cursos\\Spring\\App_F1\\f1-championship-app\\src\\main\\resources\\json\\data.json")) {
+
+            // Convert JSON File to Java Object
+            //Driver driver = gson.fromJson(reader, Driver.class);
+        	 List<Driver> driver = new Gson().fromJson(reader, new TypeToken<List<Driver>>() {}.getType());
+            System.out.println(id);
+        
+        	 for (Driver driver2 : driver) {
+				if(driver2.getId().equals(id)) {
+					d=driver2;
+				}
+            
+        	 }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		return d;
+		
+	}
+	
 	
 	
 	
