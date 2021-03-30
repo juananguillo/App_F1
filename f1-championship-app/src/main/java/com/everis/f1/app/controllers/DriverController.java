@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.everis.f1.app.models.dao.IDriverDao;
+
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.service.IDriverService;
 
@@ -20,6 +20,6 @@ public class DriverController {
 	private IDriverService driverservice;
 	@RequestMapping(value="listar", method=RequestMethod.GET)
  public List<Driver> listar() {
-	 return driverservice.listardrivers();
+	 return driverservice.findAll();
  }
 }
