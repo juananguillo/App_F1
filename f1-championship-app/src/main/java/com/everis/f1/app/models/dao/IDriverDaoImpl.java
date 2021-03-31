@@ -70,7 +70,6 @@ public class IDriverDaoImpl implements IDriverDao {
 	@Override
 	public ArrayList<Driver> getraces(String id) {
 
-		drivers.clear();
 		findAll();
 		ArrayList<Driver> driverforrace = new ArrayList<Driver>();
 		Driver dri;
