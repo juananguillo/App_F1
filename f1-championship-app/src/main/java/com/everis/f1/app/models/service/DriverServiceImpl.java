@@ -14,8 +14,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.everis.f1.app.models.dao.IDriverDao;
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.entity.Race;
 import com.google.gson.Gson;
@@ -24,83 +26,24 @@ import com.google.gson.reflect.TypeToken;
 @Service
 public class DriverServiceImpl implements IDriverService {
 
-	private ArrayList<Driver> drivers;
-
-	public DriverServiceImpl(ArrayList<Driver> drivers) {
-		this.drivers = drivers;
-	}
+	@Autowired
+	private IDriverDao driverDao;
 
 	@Override
 	public ArrayList<Driver> findAll() {
-		drivers.clear();
-
-		try (Reader reader = new FileReader(
-				"C:\\Users\\jguillol\\Desktop\\Cursos\\Spring\\App_F1\\f1-championship-app\\src\\main\\resources\\json\\data.json")) {
-
-			List<Driver> driver = new Gson().fromJson(reader, new TypeToken<List<Driver>>() {
-			}.getType());
-			for (Driver driver2 : driver) {
-				drivers.add(driver2);
-
-			}
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Collections.sort(drivers, new Driver());
-
-		return drivers;
+		return driverDao.findAll();
 	}
 
 	@Override
 	public Driver getdriver(String id) {
-		drivers.clear();
-		findAll();
-		Driver d = null;
-		for (Driver driver2 : drivers) {
-			if (driver2.getId().equals(id)) {
-				d = driver2;
-				System.out.println(driver2.getName());
-			}
-
-		}
-
-		return d;
+		return driverDao.getdriver(id);
 
 	}
 
 	@Override
 	public ArrayList<Driver> getraces(String id) {
-		// System.out.println(id);
-		drivers.clear();
-		findAll();
-		ArrayList<Driver> driverforrace = new ArrayList<Driver>();
-		Driver dri;
+		return driverDao.getraces(id);
 
-		for (Driver driverid : drivers) {
-			dri = driverid;
-			ArrayList<Race> idrace = new ArrayList<Race>();
-
-			ArrayList<Race> races = (ArrayList<Race>) driverid.getRaces();
-
-			for (Race race : races) {
-				if (race.getName().equals(id)) {
-					idrace.add(race);
-					dri.setRaces(idrace);
-					driverforrace.add(dri);
-
-				}
-			}
-
-		}
-
-		Collections.sort(driverforrace, new Driver());
-
-		return driverforrace;
 	}
 
 }
