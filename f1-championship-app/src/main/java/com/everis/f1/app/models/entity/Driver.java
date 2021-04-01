@@ -16,6 +16,8 @@ public class Driver implements Comparator<Driver> {
 	private String picture;
 	private String name;
 	private String team;
+	private int pos;
+	private int posglobal;
 	private List<Race> races;
 
 	public Driver() {
@@ -78,15 +80,35 @@ public class Driver implements Comparator<Driver> {
 		this.races = races;
 	}
 
+	
+	
+	
+	
+	public int getPos() {
+		return pos;
+	}
+
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+
+	public int getPosglobal() {
+		return posglobal;
+	}
+
+	public void setPosglobal(int posglobal) {
+		this.posglobal = posglobal;
+	}
+
 	@Override
 	public String toString() {
 		return "Driver [id=" + id + ", age=" + age + ", picture=" + picture + ", name=" + name + ", team=" + team
-				+ ", races=" + races + "]";
+				;
 	}
 
 	@Override
 	public int compare(Driver o1, Driver o2) {
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		formato.setTimeZone(TimeZone.getTimeZone("UTC"));
 
 		List<Race> r1 = o1.getRaces();
@@ -117,7 +139,10 @@ public class Driver implements Comparator<Driver> {
 			}
 
 		}
-
+		
+		System.out.println(o1.getName()+": "+num1);
+		System.out.println(o2.getName()+": "+num2);
+		
 		if (num1 < num2) {
 			return -1;
 		} else if (num1 == num2) {

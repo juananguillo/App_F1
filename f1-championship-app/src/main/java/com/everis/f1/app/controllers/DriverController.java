@@ -19,23 +19,23 @@ import com.everis.f1.app.models.service.IDriverService;
 @RestController
 public class DriverController {
 	@Autowired
-	private IDriverDao driverDao;
+	private IDriverService driverService;
 
 	@GetMapping("/ranking")
-	public List<Driver> listar() {
-		return driverDao.findAll();
+	public String listar() {
+		return driverService.findAll().toString();
 
 	}
 
 	@GetMapping("/driver")
 	public Driver getid(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		return driverDao.getdriver(id);
+		return driverService.getdriver(id);
 	}
 
 	@RequestMapping(value = "/ranking", params = "id")
 	public List<Driver> getraceid(@RequestParam String id) {
-		return driverDao.getraces(id);
+		return driverService.getraces(id);
 	}
 
 }
