@@ -135,7 +135,7 @@ public class Driver implements Comparator<Driver> {
 
 		}
 		
-		System.out.println(o1.getName()+": "+num1);
+		//System.out.println(o1.getName()+": "+num1);
 		//System.out.println(o2.getName()+": "+num2);
 		
 		if (num1 < num2) {

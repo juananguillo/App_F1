@@ -23,7 +23,7 @@ import com.google.gson.reflect.TypeToken;
 @Repository
 public class IDriverDaoImpl implements IDriverDao {
 
-	private ArrayList<Driver> drivers = new ArrayList<Driver>();
+	private ArrayList<Driver> drivers;
 
 	public IDriverDaoImpl(ArrayList<Driver> drivers) {
 		this.drivers = drivers;
@@ -66,38 +66,48 @@ public class IDriverDaoImpl implements IDriverDao {
 
 	@Override
 	public Driver getdriver(String id) {
-     
+		findAll();
 		Driver d = null;
+		
 		for (Driver driver2 : drivers) {
 			if (driver2.getId().equals(id)) {
 				d = driver2;
-
 			}
 
 		}
-
+		
 		ArrayList<Race> races = (ArrayList<Race>) d.getRaces();
 		String iddriv = d.getId();
+		int i=0;
+		int pos = 1;
 		for (Race race : races) {
+			String racename=race.getName();
 			ArrayList<Driver> driverforrace = getraces(race.getName());
-
+			System.out.println(drivers.size());
+			
 			for (Driver driverfor : driverforrace) {
+					driverfor.getRaces().get(0).setPos(pos);
+					pos++;
+			
 				if (driverfor.getId().equals(iddriv)) {
 					ArrayList<Race> racesdriv = (ArrayList<Race>) driverfor.getRaces();
-					Race rac = racesdriv.stream().filter(ra -> ra.getName().equals(race.getName())).findAny()
+					Race rac = racesdriv.stream().filter(ra -> ra.getName().equals(racename)).findAny()
 							.orElse(null);
+					System.out.println(race.getName()+"=="+race.getPos());
 					race.setPos(rac.getPos());
-					System.out.println(race.getName() + "--" + rac.getName() + "==" + rac.getPos());
+					
 					break;
 				}
-
+				
 			}
-
+			
 		}
+		
 
 		return d;
 
 	}
+	
 
 	@Override
 	public ArrayList<Driver> getraces(String id) {
@@ -124,11 +134,7 @@ public class IDriverDaoImpl implements IDriverDao {
 
 		Collections.sort(driverforrace, new Driver());
 
-		int pos = 1;
-		for (Driver driver : driverforrace) {
-			driver.getRaces().get(0).setPos(pos);
-			pos++;
-		}
+		
 
 		return driverforrace;
 	}
