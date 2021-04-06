@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.everis.f1.app.models.dao.IDriverDao;
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.service.IDriverService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @RestController
 public class DriverController {
@@ -23,19 +25,26 @@ public class DriverController {
 
 	@GetMapping("/ranking")
 	public String listar() {
-		return driverService.findAll().toString();
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
+		        .create();
+		System.out.println(gson.toJson(driverService.findAll()));
+		return gson.toJson(driverService.findAll());
+		
 
 	}
 
 	@GetMapping("/driver")
 	public Driver getid(HttpServletRequest request) {
 		String id = request.getParameter("id");
+		driverService.findAll();
 		return driverService.getdriver(id);
 	}
 
 	@RequestMapping(value = "/ranking", params = "id")
-	public List<Driver> getraceid(@RequestParam String id) {
-		return driverService.getraces(id);
+	public String getraceid(@RequestParam String id) {
+		Gson gson = new Gson();
+		driverService.findAll();
+		return gson.toJson(driverService.getraces(id));
 	}
 
 }

@@ -7,16 +7,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Driver implements Comparator<Driver> {
 	@SerializedName(value = "_id")
+	@Expose(serialize = true)
 	private String id;
+	@Expose(serialize = true)
 	private Integer age;
+	@Expose(serialize = true)
 	private String picture;
+	@Expose(serialize = true)
 	private String name;
+	@Expose(serialize = true)
 	private String team;
-	private int pos;
+	@Expose(serialize = true)
 	private int posglobal;
 	private List<Race> races;
 
@@ -80,18 +86,6 @@ public class Driver implements Comparator<Driver> {
 		this.races = races;
 	}
 
-	
-	
-	
-	
-	public int getPos() {
-		return pos;
-	}
-
-	public void setPos(int pos) {
-		this.pos = pos;
-	}
-
 	public int getPosglobal() {
 		return posglobal;
 	}
@@ -99,12 +93,13 @@ public class Driver implements Comparator<Driver> {
 	public void setPosglobal(int posglobal) {
 		this.posglobal = posglobal;
 	}
-
+	/*
 	@Override
 	public String toString() {
 		return "Driver [id=" + id + ", age=" + age + ", picture=" + picture + ", name=" + name + ", team=" + team
 				;
 	}
+	*/
 
 	@Override
 	public int compare(Driver o1, Driver o2) {
@@ -141,7 +136,7 @@ public class Driver implements Comparator<Driver> {
 		}
 		
 		System.out.println(o1.getName()+": "+num1);
-		System.out.println(o2.getName()+": "+num2);
+		//System.out.println(o2.getName()+": "+num2);
 		
 		if (num1 < num2) {
 			return -1;
