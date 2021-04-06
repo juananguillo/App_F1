@@ -35,7 +35,7 @@ public class DriverController {
 
 	@GetMapping("/driver")
 	public Driver getid(HttpServletRequest request) {
-		
+		driverService.findAll();
 		String id = request.getParameter("id");
 		return driverService.getdriver(id);
 	}
@@ -44,7 +44,7 @@ public class DriverController {
 	public String getraceid(@RequestParam String id) {
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
 		        .create();
-		//driverService.findAll();
+		driverService.findAll();
 		return gson.toJson(driverService.getraces(id));
 	}
 

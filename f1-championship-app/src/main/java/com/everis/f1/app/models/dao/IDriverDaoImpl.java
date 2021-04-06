@@ -66,7 +66,7 @@ public class IDriverDaoImpl implements IDriverDao {
 
 	@Override
 	public Driver getdriver(String id) {
-		findAll();
+		//findAll();
 		Driver d = null;
 		
 		for (Driver driver2 : drivers) {
@@ -83,7 +83,6 @@ public class IDriverDaoImpl implements IDriverDao {
 		for (Race race : races) {
 			String racename=race.getName();
 			ArrayList<Driver> driverforrace = getraces(race.getName());
-			System.out.println(drivers.size());
 			
 			for (Driver driverfor : driverforrace) {
 					driverfor.getRaces().get(0).setPos(pos);
@@ -111,17 +110,19 @@ public class IDriverDaoImpl implements IDriverDao {
 
 	@Override
 	public ArrayList<Driver> getraces(String id) {
-		findAll();
+		//findAll();
 		ArrayList<Driver> driverforrace = new ArrayList<Driver>();
-		Driver dri;
+		
 
 		for (Driver driverid : drivers) {
+			Driver dri=new Driver();
 			dri = driverid;
 			ArrayList<Race> idrace = new ArrayList<Race>();
 
 			ArrayList<Race> races = (ArrayList<Race>) driverid.getRaces();
 
 			for (Race race : races) {
+				System.out.println(driverid.getName()+"--"+race.getName());
 				if (race.getName().equals(id)) {
 					idrace.add(race);
 					dri.setRaces(idrace);
