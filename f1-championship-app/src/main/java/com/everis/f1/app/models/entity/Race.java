@@ -2,11 +2,10 @@ package com.everis.f1.app.models.entity;
 
 
 
-
 public class Race {
 	private String name;
 	private String time;
-	
+	private int pos;
 
 	public Race() {
 		
@@ -28,6 +27,13 @@ public class Race {
 		this.time = time;
 	}
 	
+	public int getPos() {
+		return pos;
+	}
+
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
 	
 	
 
