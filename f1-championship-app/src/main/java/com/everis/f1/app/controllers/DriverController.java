@@ -2,7 +2,6 @@ package com.everis.f1.app.controllers;
 
 
 
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,10 +32,9 @@ public class DriverController {
 
 	}
 
-	@GetMapping("/driver")
-	public Driver getid(HttpServletRequest request) {
+	@RequestMapping(value = "/driver", params = "id")
+	public Driver getid(@RequestParam String id) {
 		driverService.findAll();
-		String id = request.getParameter("id");
 		return driverService.getdriver(id);
 	}
 

@@ -37,6 +37,18 @@ public class Driver implements Comparator<Driver> {
 		this.team = team;
 		this.races = races;
 	}
+	
+	
+
+	public Driver(Driver driver) {
+		id = driver.id;
+		age = driver.age;
+		picture = driver.picture;
+		name = driver.name;
+		team = driver.team;
+		races = driver.races;
+		posglobal = driver.posglobal;
+	}
 
 	public String getId() {
 		return id;
@@ -93,13 +105,7 @@ public class Driver implements Comparator<Driver> {
 	public void setPosglobal(int posglobal) {
 		this.posglobal = posglobal;
 	}
-	/*
-	@Override
-	public String toString() {
-		return "Driver [id=" + id + ", age=" + age + ", picture=" + picture + ", name=" + name + ", team=" + team
-				;
-	}
-	*/
+	
 
 	@Override
 	public int compare(Driver o1, Driver o2) {
@@ -134,10 +140,7 @@ public class Driver implements Comparator<Driver> {
 			}
 
 		}
-		
-		//System.out.println(o1.getName()+": "+num1);
-		//System.out.println(o2.getName()+": "+num2);
-		
+	
 		if (num1 < num2) {
 			return -1;
 		} else if (num1 == num2) {

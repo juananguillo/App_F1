@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.entity.Race;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 @Repository
@@ -66,68 +67,57 @@ public class IDriverDaoImpl implements IDriverDao {
 
 	@Override
 	public Driver getdriver(String id) {
-		//findAll();
 		Driver d = null;
-		
+
 		for (Driver driver2 : drivers) {
 			if (driver2.getId().equals(id)) {
 				d = driver2;
 			}
 
 		}
-		
+
 		ArrayList<Race> races = (ArrayList<Race>) d.getRaces();
 		String iddriv = d.getId();
-		int i=0;
-		int pos = 1;
 		for (Race race : races) {
-			String racename=race.getName();
+
+			String racename = race.getName();
 			ArrayList<Driver> driverforrace = getraces(race.getName());
-			
+
 			for (Driver driverfor : driverforrace) {
-					driverfor.getRaces().get(0).setPos(pos);
-					pos++;
-			
 				if (driverfor.getId().equals(iddriv)) {
 					ArrayList<Race> racesdriv = (ArrayList<Race>) driverfor.getRaces();
-					Race rac = racesdriv.stream().filter(ra -> ra.getName().equals(racename)).findAny()
-							.orElse(null);
-					System.out.println(race.getName()+"=="+race.getPos());
+					Race rac = racesdriv.stream().filter(ra -> ra.getName().equals(racename)).findAny().orElse(null);
 					race.setPos(rac.getPos());
-					
+					driverforrace.clear();
 					break;
+
 				}
-				
 			}
-			
+
 		}
-		
 
 		return d;
 
 	}
-	
 
 	@Override
 	public ArrayList<Driver> getraces(String id) {
-		//findAll();
+
 		ArrayList<Driver> driverforrace = new ArrayList<Driver>();
-		
 
 		for (Driver driverid : drivers) {
-			Driver dri=new Driver();
-			dri = driverid;
 			ArrayList<Race> idrace = new ArrayList<Race>();
 
 			ArrayList<Race> races = (ArrayList<Race>) driverid.getRaces();
 
 			for (Race race : races) {
-				System.out.println(driverid.getName()+"--"+race.getName());
+
 				if (race.getName().equals(id)) {
+					Driver dri = new Driver(driverid);
 					idrace.add(race);
 					dri.setRaces(idrace);
 					driverforrace.add(dri);
-
+					break;
 				}
 			}
 
@@ -135,7 +125,11 @@ public class IDriverDaoImpl implements IDriverDao {
 
 		Collections.sort(driverforrace, new Driver());
 
-		
+		int pos = 1;
+		for (Driver driverfor : driverforrace) {
+			driverfor.getRaces().get(0).setPos(pos);
+			pos++;
+		}
 
 		return driverforrace;
 	}
