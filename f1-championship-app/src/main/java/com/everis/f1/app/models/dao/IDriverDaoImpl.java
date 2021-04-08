@@ -21,6 +21,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+/*
+ * Esta clase implementa la interfaz IDriverDao y sobrescibe sus metodos, encargandose
+ * de seleccionar los datos que se piden en el restcontroller
+ * 
+ */
+
+/*
+ * La anotacion repository es usada para la persistencia, aunque no se guarden los datos
+ * la utilizo para poder inyectar la clase en el servicio
+ * 
+ */
 @Repository
 public class IDriverDaoImpl implements IDriverDao {
 
@@ -29,6 +40,13 @@ public class IDriverDaoImpl implements IDriverDao {
 	public IDriverDaoImpl(ArrayList<Driver> drivers) {
 		this.drivers = drivers;
 	}
+
+	/*
+	 * Este metodo lee el json usando GSON, los asocia a una clase pojo e introduce
+	 * los datos en el arraylist de Drivers los ordena y establece su posicion
+	 * global
+	 * 
+	 */
 
 	@Override
 	public ArrayList<Driver> findAll() {
@@ -65,6 +83,12 @@ public class IDriverDaoImpl implements IDriverDao {
 		return drivers;
 	}
 
+	/*
+	 * Este metodo devuelve un driver especifico, pero para que en cada carrera
+	 * salga su posicion llamo a getRaces la cual devuelve todos los drivers con una
+	 * sola carrera y en cada una su posicion
+	 */
+
 	@Override
 	public Driver getdriver(String id) {
 		Driver d = null;
@@ -75,20 +99,26 @@ public class IDriverDaoImpl implements IDriverDao {
 			}
 
 		}
-
+		/*
+		 * Saco las carreras solo para hacer un bucle y poder parsarle a un arraylist
+		 * vacio todos los drivers con solo una carrera
+		 * 
+		 */
 		ArrayList<Race> races = (ArrayList<Race>) d.getRaces();
 		String iddriv = d.getId();
 		for (Race race : races) {
 
 			String racename = race.getName();
 			ArrayList<Driver> driverforrace = getraces(race.getName());
-
+			/*
+			 * Cuando tengo todos los drivers con una carrera busco al driver que se pide y
+			 * le paso su posicion establecida en getraces
+			 * 
+			 */
 			for (Driver driverfor : driverforrace) {
 				if (driverfor.getId().equals(iddriv)) {
 					ArrayList<Race> racesdriv = (ArrayList<Race>) driverfor.getRaces();
-					Race rac = racesdriv.stream().filter(ra -> ra.getName().equals(racename)).findAny().orElse(null);
-					race.setPos(rac.getPos());
-					driverforrace.clear();
+					race.setPos(racesdriv.get(0).getPos());
 					break;
 
 				}
@@ -100,6 +130,12 @@ public class IDriverDaoImpl implements IDriverDao {
 
 	}
 
+	/*
+	 * Este metodo devuelve todos los drivers pero solo con una carrera y ordenados
+	 * segun su posicion en esta
+	 * 
+	 * 
+	 */
 	@Override
 	public ArrayList<Driver> getraces(String id) {
 

@@ -10,6 +10,13 @@ import java.util.TimeZone;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ *Clase POJO de Driver
+ *SerializedName lo uso porque en el JSON el id es _id y en la clase pojo es id
+ *Expose lo uso para que el GSON builder saque solo esos valores y los demas 
+ *no los muestre
+ *Tambien tiene la interfaz comparador para comparar el tiempo de dos conductores
+ */
 public class Driver implements Comparator<Driver> {
 	@SerializedName(value = "_id")
 	@Expose(serialize = true)
@@ -37,8 +44,6 @@ public class Driver implements Comparator<Driver> {
 		this.team = team;
 		this.races = races;
 	}
-	
-	
 
 	public Driver(Driver driver) {
 		id = driver.id;
@@ -105,7 +110,14 @@ public class Driver implements Comparator<Driver> {
 	public void setPosglobal(int posglobal) {
 		this.posglobal = posglobal;
 	}
-	
+
+	/*
+	 * Para poder comparar drivers por el tiempo saco el tiempo de cada carrera lo
+	 * convierto a milisegundos y los sumo con las de otra carrera. Asi se ordenan
+	 * por el que menos tiempo tenga
+	 * 
+	 * 
+	 */
 
 	@Override
 	public int compare(Driver o1, Driver o2) {
@@ -140,7 +152,7 @@ public class Driver implements Comparator<Driver> {
 			}
 
 		}
-	
+
 		if (num1 < num2) {
 			return -1;
 		} else if (num1 == num2) {

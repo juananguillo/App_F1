@@ -1,6 +1,9 @@
 package com.everis.f1.app.models.entity;
 
-
+/*
+ * Clase POJO de races
+ * 
+ */
 
 public class Race {
 	private String name;
