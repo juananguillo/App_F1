@@ -29,7 +29,7 @@ public class DriverRestController {
 	 */
 	@GetMapping("/ranking")
 	public String listar() {
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
 		return gson.toJson(driverService.findAll());
 
 	}
@@ -53,7 +53,7 @@ public class DriverRestController {
 	 */
 	@RequestMapping(value = "/ranking", params = "id")
 	public String getraceid(@RequestParam String id) {
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
 		driverService.findAll();
 		return gson.toJson(driverService.getraces(id));
 	}
