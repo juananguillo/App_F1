@@ -1,11 +1,14 @@
 package com.everis.f1.app.models.entity;
 
+import com.google.gson.annotations.Expose;
+
 /*
  * Clase POJO de races
  * 
  */
 
 public class Race {
+	@Expose(serialize = true)
 	private String name;
 	private String time;
 	private int pos;
