@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DriversComponent } from './drivers/drivers.component';
+import { DriversComponent } from './driver/drivers.component';
 import { RacesComponent } from './races/races.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ButtonracesComponent } from './buttonraces/buttonraces.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     DriversComponent,
-    RacesComponent
+    RacesComponent,
+    ButtonracesComponent
   ],
   imports: [
     BrowserModule,

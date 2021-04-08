@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DriverService } from './driver.service';
-import { IDriver } from './Idriver';
+import { IDriver } from '../clases/Idriver';
 
 
 @Component({
@@ -15,7 +15,9 @@ export class DriversComponent implements OnInit {
   constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
-    this.drivers = this.driverService.getDrivers();
+    this.driverService.getDrivers().subscribe(
+      drivers=>this.drivers=drivers
+    );
   }
 
 }

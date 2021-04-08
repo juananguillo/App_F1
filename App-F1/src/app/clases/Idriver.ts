@@ -1,4 +1,4 @@
-import { IRace } from "../races/Irace";
+import { IRace } from "./Irace";
 
 export interface IDriver {
     id:string;
