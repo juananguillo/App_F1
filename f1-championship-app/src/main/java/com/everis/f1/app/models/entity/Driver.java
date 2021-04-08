@@ -31,6 +31,7 @@ public class Driver implements Comparator<Driver> {
 	private String team;
 	@Expose(serialize = true)
 	private int posglobal;
+	@Expose(serialize = true)
 	private List<Race> races;
 
 	public Driver() {
