@@ -5,10 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IDriver } from "../../App-F1/src/app/clases/Idriver";
 export namespace Components {
     interface F1Table {
-        "arrayData": IDriver[] | string;
     }
 }
 declare global {
@@ -24,7 +22,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface F1Table {
-        "arrayData"?: IDriver[] | string;
     }
     interface IntrinsicElements {
         "f1-table": F1Table;

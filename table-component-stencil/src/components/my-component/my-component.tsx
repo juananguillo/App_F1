@@ -1,4 +1,4 @@
-import { Component, Prop, h, Watch} from '@stencil/core';
+import { Component, h, State} from '@stencil/core';
 //import { format } from '../../utils/utils';
 import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
 //import {IRace} from '../../../../App-F1/src/app/clases/Irace';
@@ -10,23 +10,22 @@ import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
   shadow: true,
 })
 export class MyComponent {
-private _arrayData: IDriver[];
-@Prop() arrayData: IDriver[] | string;
-  //races: IRace[]=[{name:"2", time:"0", pos:1},{name:"1",time:"0", pos:4},{name:"1",time:"0", pos:4}];
 
-  @Watch('arrayData')
-  arrayDataWatcher(newValue: IDriver[] | string) {
-    if (typeof newValue === 'string') {
-       this._arrayData = JSON.parse(newValue);
-    }
-    else {
-      this._arrayData = newValue;
-    }
+  @State() drivers: IDriver[]=[];
+
+
+  componentWillLoad() {
+    
+    fetch('http://localhost:8080/ranking')
+      .then((response: Response) => response.json())
+      .then(response => {
+        this.drivers= response;
+      });
+      
+    
   }
   
-  componentWillLoad() {
-    this.arrayDataWatcher(this.arrayData);
-  }
+
 
 
   render() {
@@ -34,7 +33,7 @@ private _arrayData: IDriver[];
       
     <thead>
         <tr>
-            <th>Rank</th>
+            <th colSpan={2}>Rank</th>
             <th>Name</th>
             <th>Team</th>
         </tr>
@@ -42,14 +41,15 @@ private _arrayData: IDriver[];
     <tbody>
     
     { 
-      this._arrayData.map((driver, pos)=>
+      this.drivers.map((driver, pos)=>
       <tr>
-      <td>{pos}</td>
+        <td><a href="#"><img id="minpic" src={driver.picture}></img></a></td>
+      <td>{pos+1}</td>
       <td>{driver.name}</td>
       <td>{driver.team}</td>
   </tr>
-
       )}
+  
        
        
     </tbody>
