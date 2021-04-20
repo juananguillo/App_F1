@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DriverService } from './driver.service';
 import { IDriver } from '../clases/Idriver';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @Component({
