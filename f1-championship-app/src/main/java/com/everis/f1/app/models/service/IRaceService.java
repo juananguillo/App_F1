@@ -1,10 +1,9 @@
-package com.everis.f1.app.models.dao;
+package com.everis.f1.app.models.service;
 
 import java.util.ArrayList;
 
-import com.everis.f1.app.models.entity.Race;
 import com.everis.f1.app.models.entity.Driver;
 
-public interface IRaceDao {
+public interface IRaceService {
 	public ArrayList<String> findAll(ArrayList<Driver> drivers);
 }
