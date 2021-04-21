@@ -11,7 +11,7 @@ import com.everis.f1.app.models.service.IDriverService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:3333"})
 @RestController
 public class DriverRestController {
 
