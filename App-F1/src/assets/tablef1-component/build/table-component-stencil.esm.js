@@ -1,1 +1,1 @@
-import{p as r,b as p}from"./p-af221177.js";(()=>{const p=import.meta.url,s={};return""!==p&&(s.resourcesUrl=new URL(".",p).href),r(s)})().then((r=>p([["p-29c54472",[[1,"f1-table",{drivers:[32]}]]]],r)));
+import{p as e,b as r}from"./p-d7e0e8f3.js";(()=>{const r=import.meta.url,p={};return""!==r&&(p.resourcesUrl=new URL(".",r).href),e(p)})().then((e=>r([["p-b0337ec7",[[1,"f1-table",{drivers:[32]}]]]],e)));

@@ -13,6 +13,7 @@ export class MyComponent {
 
   @State() drivers: IDriver[]=[];
 
+  
 
   componentWillLoad() {
     
@@ -29,31 +30,7 @@ export class MyComponent {
 
 
   render() {
-    return <table class="styled-table">
-      
-    <thead>
-        <tr>
-            <th colSpan={2}>Rank</th>
-            <th>Name</th>
-            <th>Team</th>
-        </tr>
-    </thead>
-    <tbody>
-    
-    { 
-      this.drivers.map((driver, pos)=>
-      <tr>
-        <td><a href="#"><img id="minpic" src={driver.picture}></img></a></td>
-      <td>{pos+1}</td>
-      <td>{driver.name}</td>
-      <td>{driver.team}</td>
-  </tr>
-      )}
-  
-       
-       
-    </tbody>
-</table>;
+    return <div><slot name='drivers'></slot></div>;
   
   }
 }
