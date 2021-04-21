@@ -1,3 +1,11 @@
+<button-races>
+    <ng-container  *ngFor="race of let drivers.races">
+        <a slot="buttonraces"  class="nav-item nav-link" href="#">{{race.name}}</a>
+    </ng-container>
+    
+  
+</button-races>
+
 <f1-table>
 <tr slot="drivers" *ngFor="let driver of drivers; index as i">
     <td><a href="#"><img id="minpic" src={{driver.picture}}></a></td>

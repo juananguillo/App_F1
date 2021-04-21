@@ -30,8 +30,8 @@ table {
   transform: translateX(10%);
 }
 
-/*
-::sloted(#minpic){
+
+::sloted(img #minpic){
   width: 30px;
   height: 30px;
   border-radius: 10px;
@@ -42,7 +42,6 @@ table {
   padding-right:15px;
 } 
 
-*/
 
  
 ::slotted(tr:nth-child(even))  {
@@ -58,7 +57,7 @@ tr:first-child th:last-child {
 }
 
 
- 
+ /*
 .container .card-driver {
   margin-left: 80px;
   margin-top: 20px;
@@ -85,6 +84,7 @@ tr:first-child th:last-child {
   color: #06b70b;
   text-align: center;
 }
+*/
 
 @media (max-width:600px) {
   .priority{
