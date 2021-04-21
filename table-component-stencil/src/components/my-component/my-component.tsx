@@ -1,6 +1,6 @@
-import { Component, h, State} from '@stencil/core';
+import { Component, h} from '@stencil/core';
 //import { format } from '../../utils/utils';
-import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
+//import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
 //import {IRace} from '../../../../App-F1/src/app/clases/Irace';
 
 
@@ -11,18 +11,13 @@ import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
 })
 export class MyComponent {
 
-  @State() drivers: IDriver[]=[];
+
 
   
 
   componentWillLoad() {
     
-    fetch('http://localhost:8080/ranking')
-      .then((response: Response) => response.json())
-      .then(response => {
-        this.drivers= response;
-      });
-      
+    //const drivers=document.getElementsByName("drivers")
     
   }
   
@@ -30,7 +25,23 @@ export class MyComponent {
 
 
   render() {
-    return <div><slot name='drivers'></slot></div>;
+    return <table class="styled-table">
+      
+    <thead>
+        <tr>
+            <th colSpan={2}>Rank</th>
+            <th>Name</th>
+            <th class="priority">Team</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    <slot name='drivers'/>
+  
+       
+       
+    </tbody>
+</table>;
   
   }
 }

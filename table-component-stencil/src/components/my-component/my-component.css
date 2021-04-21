@@ -10,8 +10,11 @@ table thead {
  
 table thead tr th {
   width: 150px;
-  text-align: center;
+
 }
+table thead tr th:first-child{
+  text-align: center;
+  }
  
 table {
   margin-top: 20px;
@@ -21,19 +24,28 @@ table {
   border-collapse: collapse;
  
 }
- 
-table tbody :hover {
+
+::slotted(tr:hover) {
   color: green;
-  transform: translateX(2%);
+  transform: translateX(10%);
 }
- 
-td {
- 
-  text-align: center;
-  padding: 8px;
+
+/*
+::sloted(#minpic){
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border-radius: 40px;
 }
+
+::slotted(tr td:nth-child(2)) {
+  padding-right:15px;
+} 
+
+*/
+
  
-tr:nth-child(even) {
+::slotted(tr:nth-child(even))  {
   background-color: #dddddd;
 }
  
@@ -44,6 +56,8 @@ tr:first-child th:first-child {
 tr:first-child th:last-child {
   border-bottom-right-radius: 150px;
 }
+
+
  
 .container .card-driver {
   margin-left: 80px;
@@ -70,4 +84,10 @@ tr:first-child th:last-child {
 .driver-body {
   color: #06b70b;
   text-align: center;
+}
+
+@media (max-width:600px) {
+  .priority{
+      display: none;
+  }
 }

@@ -1,3 +1,8 @@
 <f1-table>
-<p slot="drivers">{{drivers}}</p>
+<tr slot="drivers" *ngFor="let driver of drivers; index as i">
+    <td><a href="#"><img id="minpic" src={{driver.picture}}></a></td>
+      <td>{{i+1}}</td>
+      <td>{{driver.name}}</td>
+      <td class="priority">{{driver.team}}</td>
+</tr>
 </f1-table>
