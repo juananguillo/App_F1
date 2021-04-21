@@ -1,9 +1,5 @@
 <button-races>
-    <ng-container  *ngFor="race of let drivers.races">
-        <a slot="buttonraces"  class="nav-item nav-link" href="#">{{race.name}}</a>
-    </ng-container>
-    
-  
+    <a slot="buttonraces"  *ngFor="race of let drivers.races" class="nav-item nav-link" href="#">{{race.name}}</a>
 </button-races>
 
 <f1-table>

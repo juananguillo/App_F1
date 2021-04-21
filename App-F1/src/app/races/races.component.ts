@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RacesService } from './races.service';
 
 @Component({
   selector: 'app-races',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RacesComponent implements OnInit {
 
-  constructor() { }
+
+  races: String[]=[];
+
+  constructor(private racesService: RacesService) { }
 
   ngOnInit(): void {
+    this.racesService.getraces().subscribe(
+      races=>this.races=races
+    );
   }
 
 }
