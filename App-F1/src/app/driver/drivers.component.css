@@ -1,6 +1,9 @@
 td:nth-child(2){
-    padding-right:15px;
+    padding-right:40px;
   } 
+
+
+
 tr>td>a>img{
     width: 30px;
     height: 30px;
