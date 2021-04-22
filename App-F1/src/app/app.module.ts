@@ -8,6 +8,9 @@ import { DriversComponent } from './driver/drivers.component';
 import { RacesComponent } from './races/races.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ButtonracesComponent } from './buttonraces/buttonraces.component';
+import { RankingComponent } from './ranking/ranking.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { ButtonracesComponent } from './buttonraces/buttonraces.component';
     FooterComponent,
     DriversComponent,
     RacesComponent,
-    ButtonracesComponent
+    ButtonracesComponent,
+    RankingComponent,
+   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   schemas: [

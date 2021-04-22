@@ -25,13 +25,29 @@ public class RaceDaoImpl implements IRaceDao{
 	}
 
 	@Override
-	public ArrayList<String> findAll(ArrayList<Driver> drivers) {
+	public ArrayList<String> findAll() {
+		
+		races.clear();
 
-		ArrayList<Race> racesdri = (ArrayList<Race>) drivers.get(0).getRaces();
-			for (Race racedri : racesdri) {
-				races.add(racedri.getName());
+		try (Reader reader = new FileReader(
+				"C:\\Users\\jguillol\\Desktop\\Cursos\\Spring\\App_F1\\f1-championship-app\\src\\main\\resources\\json\\data.json")) {
+
+			List<Driver> drivers = new Gson().fromJson(reader, new TypeToken<List<Driver>>() {
+			}.getType());
+			ArrayList<Race> rac= (ArrayList<Race>) drivers.get(0).getRaces();
+			for (Race race: rac) {
+				races.add(race.getName());
+
 			}
-			
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 			
 
 			return races;

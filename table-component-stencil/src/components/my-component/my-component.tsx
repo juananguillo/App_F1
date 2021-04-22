@@ -7,7 +7,7 @@ import { Component, h} from '@stencil/core';
 @Component({
   tag: 'f1-table',
   styleUrl: 'my-component.css',
-  shadow: true,
+  shadow: true
 })
 export class MyComponent {
 
@@ -25,7 +25,8 @@ export class MyComponent {
 
 
   render() {
-    return <table class="styled-table">
+    return  <div class="tablacont">
+      <table class="styled-table">
       
     <thead>
         <tr>
@@ -35,13 +36,9 @@ export class MyComponent {
         </tr>
     </thead>
     <tbody>
-    
     <slot name='drivers'/>
-  
-       
-       
     </tbody>
-</table>;
+</table></div>;
   
   }
 }

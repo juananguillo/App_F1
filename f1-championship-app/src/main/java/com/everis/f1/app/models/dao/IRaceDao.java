@@ -6,5 +6,5 @@ import com.everis.f1.app.models.entity.Race;
 import com.everis.f1.app.models.entity.Driver;
 
 public interface IRaceDao {
-	public ArrayList<String> findAll(ArrayList<Driver> drivers);
+	public ArrayList<String> findAll();
 }

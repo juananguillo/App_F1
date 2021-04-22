@@ -44,7 +44,7 @@ public class DriverRestController {
 	
 	@GetMapping("/races")
 	public ArrayList<String> races() {
-		return raceService.findAll(driverService.findAll());
+		return raceService.findAll();
 		
 
 	}

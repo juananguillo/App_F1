@@ -1,7 +1,7 @@
 td:nth-child(2){
     padding-right:15px;
   } 
-#minpic{
+tr>td>a>img{
     width: 30px;
     height: 30px;
    
@@ -9,8 +9,17 @@ td:nth-child(2){
     border-radius: 40px;
 }
 
+
 @media (max-width:600px) {
     .priority{
         display: none;
     }
 }
+
+a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  

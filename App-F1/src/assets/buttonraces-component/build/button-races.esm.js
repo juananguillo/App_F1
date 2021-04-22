@@ -1,1 +1,1 @@
-import{p as r,b as t}from"./p-6495586b.js";(()=>{const t=import.meta.url,o={};return""!==t&&(o.resourcesUrl=new URL(".",t).href),r(o)})().then((r=>t([["p-91b789c1",[[1,"button-races"]]]],r)));
+import{p as r,b as t}from"./p-6495586b.js";(()=>{const t=import.meta.url,o={};return""!==t&&(o.resourcesUrl=new URL(".",t).href),r(o)})().then((r=>t([["p-1d6c41cd",[[1,"button-races"]]]],r)));

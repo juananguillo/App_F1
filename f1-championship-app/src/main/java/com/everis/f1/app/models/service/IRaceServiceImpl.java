@@ -15,8 +15,8 @@ public class IRaceServiceImpl implements IRaceService {
 	private IRaceDao raceDao;
 	
 	@Override
-	public ArrayList<String> findAll(ArrayList<Driver> drivers) {
-		return raceDao.findAll(drivers);
+	public ArrayList<String> findAll() {
+		return raceDao.findAll();
 	}
 
 }

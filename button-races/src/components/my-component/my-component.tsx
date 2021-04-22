@@ -3,7 +3,7 @@ import { Component, h } from '@stencil/core';
 @Component({
   tag: 'button-races',
   styleUrl: 'my-component.css',
-  shadow: true,
+  shadow: true
 })
 export class MyComponent {
 
@@ -12,7 +12,7 @@ export class MyComponent {
   
   render() {
    return <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
+  <button class="dropbtn">Select Race</button>
   <div class="dropdown-content">
     <slot name="buttonraces" />
   </div>
