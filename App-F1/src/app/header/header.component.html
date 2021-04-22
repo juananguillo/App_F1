@@ -1,1 +1,6 @@
 <h1 class="text-center">Formula 1 Championship</h1>
+<br>
+<button-races>
+    <a slot="buttonraces" class="nav-item nav-link" [routerLink]="['/ranking/']" >Global</a>
+    <a slot="buttonraces" *ngFor="let race of races" class="nav-item nav-link" [routerLink]="['/ranking/', race]" >{{race}}</a>
+  </button-races>

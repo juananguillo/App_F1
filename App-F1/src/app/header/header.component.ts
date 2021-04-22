@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RacesService } from '../races/races.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  races: String[]=[];
+
+  constructor(
+    private racesService: RacesService,
+    private activatedRoute: ActivatedRoute, 
+    ) { }
 
   ngOnInit(): void {
+
+    this.racesService.getraces().subscribe(
+      races=>this.races=races
+    );
   }
 
 }

@@ -1,10 +1,5 @@
-<div>
-    <br>
-<button-races>
-    <a slot="buttonraces" class="nav-item nav-link" [routerLink]="['/ranking/']" >Global</a>
-    <a slot="buttonraces" *ngFor="let race of races" class="nav-item nav-link" [routerLink]="['/ranking/', race]" >{{race}}</a>
-  </button-races>
-  <br>
+  
+  <p id="route">{{route}}</p>
   <f1-table>
     <tr slot="drivers" *ngFor="let driver of drivers; index as i">
         <td><a href="#"><img class="minpic" src={{driver.picture}}></a></td>
@@ -16,5 +11,5 @@
           <td class="priority">{{driver.team}}</td>
     </tr>
       </f1-table>
-    </div>
+    
 
