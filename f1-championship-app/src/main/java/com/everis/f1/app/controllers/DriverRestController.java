@@ -1,5 +1,7 @@
 package com.everis.f1.app.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.everis.f1.app.models.entity.Driver;
 import com.everis.f1.app.models.service.IDriverService;
+import com.everis.f1.app.models.service.IRaceService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -24,6 +27,9 @@ public class DriverRestController {
 	 */
 	@Autowired
 	private IDriverService driverService;
+	
+	@Autowired
+	private IRaceService raceService;
 
 	/*
 	 * Este metodo devuelve los drivers, en formato json además mediante el
@@ -35,6 +41,14 @@ public class DriverRestController {
 		return gson.toJson(driverService.findAll());
 
 	}
+	
+	@GetMapping("/races")
+	public ArrayList<String> races() {
+		return raceService.findAll();
+		
+
+	}
+
 
 	/*
 	 * Este metodo devuelve un driver especifico, para que cuando se refresce los

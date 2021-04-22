@@ -10,10 +10,10 @@ import { IDriver } from '../clases/Idriver';
 })
 export class DriverService {
 
-  private urlEndPoint:string='http://localhost:8080/ranking';
+
   constructor(private http: HttpClient) { }
 
-  getDrivers(): Observable<IDriver[]>{
-    return this.http.get<IDriver[]>(this.urlEndPoint);
+  getDrivers(url: string): Observable<IDriver[]>{
+    return this.http.get<IDriver[]>(url);
   }
 }
