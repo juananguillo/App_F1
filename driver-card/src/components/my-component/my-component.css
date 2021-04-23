@@ -7,10 +7,9 @@
 }
 
 .card{
-  max-width: 11rem;
+ 
   border-radius: 23px 26px 23px 23px;
-  height: 600px;
-  width: 200px;
+  height: 340px;
 }
  
 .header-driver {

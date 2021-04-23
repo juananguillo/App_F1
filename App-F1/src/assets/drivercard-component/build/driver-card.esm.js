@@ -1,0 +1,1 @@
+import{p as r,b as a}from"./p-7a164675.js";(()=>{const a=import.meta.url,e={};return""!==a&&(e.resourcesUrl=new URL(".",a).href),r(e)})().then((r=>a([["p-12227561",[[1,"driver-card",{picture:[1],name:[1],age:[1],team:[1],global:[2]}]]]],r)));

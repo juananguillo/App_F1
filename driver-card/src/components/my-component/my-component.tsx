@@ -4,7 +4,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'driver-card',
   styleUrl: 'my-component.css',
-  shadow: false,
+  shadow: true,
 })
 export class MyComponent {
  
@@ -32,7 +32,7 @@ export class MyComponent {
       pos=this.global;
       break;
   }
-    return<div class="container"><div class="card">
+    return<div class="card">
       <div class="header-driver">
        <h4>Driver Card</h4>
        </div>
@@ -48,6 +48,6 @@ export class MyComponent {
       <p class="contentpos">{pos}</p>
       </div>
     
-  </div></div>;
+  </div>;
   }
 }
