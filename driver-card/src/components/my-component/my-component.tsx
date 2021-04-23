@@ -32,10 +32,7 @@ export class MyComponent {
       pos=this.global;
       break;
   }
-    return<div class="container">
-      <div class="row">
-      <div class="col-6">
-      <div class="card">
+    return<div class="container"><div class="card">
       <div class="header-driver">
        <h4>Driver Card</h4>
        </div>
@@ -50,29 +47,7 @@ export class MyComponent {
       <p>Global Ranking</p>
       <p class="contentpos">{pos}</p>
       </div>
-
-      <div class="col-6">
-      <div class="tablacont">
-      <table class="styled-table">
-      
-    <thead>
-        <tr>
-            <th colSpan={2}>Race</th>
-            <th>Position</th>
-            <th class="priority">Time</th>
-        </tr>
-    </thead>
-    <tbody>
-    <slot name='drivers'/>
-    </tbody>
-</table></div>;
-
-      </div>
-
-
-
-      </div>
-      </div>
+    
   </div></div>;
   }
 }

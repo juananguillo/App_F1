@@ -1,19 +1,24 @@
 <p id="route">Driver</p>
- 
+<div class="container-fluid">
+    <div class="row">
+     
+      <div class="col-1">
   <driver-card picture="{{driver.picture}}" name="{{driver.name}}" age="{{driver.age}}" 
   team="{{driver.team}}" global="{{driver.posglobal}}">
 
-  <tr slot="drivers" *ngFor="let race of driver.races;">
-    <td>{{race.name}}</td>
-    <td *ngIf="race.pos===1"><span style="font-size:25px">🥇</span></td>
-    <td *ngIf="race.pos===2">🥈</td>
-    <td *ngIf="race.pos===3">🥉</td>
-      <td *ngIf="race.pos>3"> {{race.pos}}</td>
-      <td>{{race.time}}</td>
-</tr>
-  
-
   </driver-card>
-
-   
-  
+</div>
+<div class="col-11">
+  <f1-table thone="Race" thtwo="Position" ththree="Time">
+    <tr slot="drivers" *ngFor="let race of driver.races;">
+      <td>{{race.name}}</td>
+      <td *ngIf="race.pos===1"><span style="font-size:25px">🥇</span></td>
+      <td *ngIf="race.pos===2">🥈</td>
+      <td *ngIf="race.pos===3">🥉</td>
+        <td *ngIf="race.pos>3"> {{race.pos}}</td>
+        <td>{{race.time}}</td>
+  </tr>
+      </f1-table>
+    </div>
+    </div>
+    </div>
