@@ -11,6 +11,9 @@ tr>td>a>img{
     border-radius: 40px;
 }
 
+table{
+    width: 100%;
+}
 
 @media (max-width:600px) {
     .priority{

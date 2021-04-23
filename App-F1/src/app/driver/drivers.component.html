@@ -1,14 +1,14 @@
 <p id="route">Driver</p>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
      
-      <div class="col-4">
+      <div class="col-1">
   <driver-card picture="{{driver.picture}}" name="{{driver.name}}" age="{{driver.age}}" 
   team="{{driver.team}}" global="{{driver.posglobal}}">
 
   </driver-card>
 </div>
-<div class="col-8">
+<div class="col-11">
   <f1-table thone="Race" thtwo="Position" ththree="Time">
     <tr slot="drivers" *ngFor="let race of driver.races;">
       <td>{{race.name}}</td>
