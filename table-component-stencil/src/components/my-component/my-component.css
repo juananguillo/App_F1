@@ -57,35 +57,6 @@ tr:first-child th:last-child {
 }
 
 
- /*
-.container .card-driver {
-  margin-left: 80px;
-  margin-top: 20px;
-  max-width: 11rem;
-  border-radius: 23px 26px 23px 23px;
-  border-color: #06b70b;
-  height: 440px;
-}
-.card .card-img-top {
-  width: 90px;
-  height: 95px;
-  margin-top: 10px;
-  margin-left: 40px;
-  border-radius: 10px;
-}
- 
-.header-driver {
-  background-color: #06b70b;
-  border-radius: 20px 19px 0px 0px;
-  text-align: center;
-  color: white;
-}
-.driver-body {
-  color: #06b70b;
-  text-align: center;
-}
-*/
-
 @media (max-width:600px) {
   .priority{
       display: none;

@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+
+.container {
+  margin-left: 80px;
+  max-width: 11rem;
+  border-radius: 23px 26px 23px 23px;
+  height: 600px;
+}
+
+.card{
+margin-top: 20%;
+}
+ 
+.header-driver {
+  margin-bottom: 0px;
+  background-color: #06b70b;
+  border-radius: 20px 19px 0px 0px;
+  text-align: center;
+  color: white;
+  height: 30px;
+
+}
+
+.header-driver h4{
+  padding-top: 5%;
+}
+
+.imgdriver{
+  margin-top: 10px;
+}
+
+.driver-body {
+  color: #06b70b;
+  text-align: center;
+  border:1px solid  #06b70b;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  line-height: 8pt;
+  
+}
+
+.content{
+  color: gray;
+  font-size:small;
+}
+.contentpos{
+  color: black;
+  font-size: large;
+}
+
+@media (max-width:700px) {
+ .container{
+  max-width: 20rem;
+  margin: auto;
+ }
+
+ .header-driver h4{
+  padding-top: 3%;
+}
+
+}
