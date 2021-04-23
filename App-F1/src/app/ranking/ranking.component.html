@@ -1,1 +1,13 @@
-<app-drivers></app-drivers>
+<p id="route">{{route}}</p>
+<f1-table thone="Rank" thtwo="Name" ththree="Team">
+  <tr [routerLink]="['/driver/', driver._id]" slot="drivers" *ngFor="let driver of drivers; index as i">
+      <td><img class="minpic" src={{driver.picture}}></td>
+      <td *ngIf="i+1===1"><span style="font-size:25px">🥇</span></td>
+      <td *ngIf="i+1===2">🥈</td>
+      <td *ngIf="i+1===3">🥉</td>
+        <td *ngIf="i+1>3"> {{i+1}}</td>
+        <td>{{driver.name}}</td>
+        <td class="priority">{{driver.team}}</td>
+      
+  </tr>
+    </f1-table>

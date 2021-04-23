@@ -1,4 +1,4 @@
-import { Component, h} from '@stencil/core';
+import { Component, h, Prop} from '@stencil/core';
 //import { format } from '../../utils/utils';
 //import {IDriver} from '../../../../App-F1/src/app/clases/Idriver';
 //import {IRace} from '../../../../App-F1/src/app/clases/Irace';
@@ -12,27 +12,24 @@ import { Component, h} from '@stencil/core';
 export class MyComponent {
 
 
+  @Prop() thone:string;
+  @Prop() thtwo:string;
+  @Prop() ththree:string;
 
-  
 
-  componentWillLoad() {
-    
-    //const drivers=document.getElementsByName("drivers")
-    
-  }
-  
 
 
 
   render() {
+    let cols=this.thone=="Rank"?2:1;
     return  <div class="tablacont">
       <table class="styled-table">
       
     <thead>
         <tr>
-            <th colSpan={2}>Rank</th>
-            <th>Name</th>
-            <th class="priority">Team</th>
+            <th colSpan={cols}>{this.thone}</th>
+            <th>{this.thtwo}</th>
+            <th class="priority">{this.ththree}</th>
         </tr>
     </thead>
     <tbody>

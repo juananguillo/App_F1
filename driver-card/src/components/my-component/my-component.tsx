@@ -2,7 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 
 @Component({
-  tag: 'my-component',
+  tag: 'driver-card',
   styleUrl: 'my-component.css',
   shadow: true,
 })

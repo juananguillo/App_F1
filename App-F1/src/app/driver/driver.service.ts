@@ -16,4 +16,8 @@ export class DriverService {
   getDrivers(url: string): Observable<IDriver[]>{
     return this.http.get<IDriver[]>(url);
   }
+
+  getDriver(url: string): Observable<IDriver>{
+    return this.http.get<IDriver>(url);
+  }
 }

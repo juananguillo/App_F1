@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IDriver } from '../clases/Idriver';
 import { DriverService } from '../driver/driver.service';
 import { RacesService } from '../races/races.service';
@@ -12,23 +13,29 @@ import { RacesService } from '../races/races.service';
 export class RankingComponent implements OnInit {
 
 
+  route: String="";
   drivers: IDriver[] = [];
   races: String[]=[];
-  @Input() url: string="";
+  url= "http://localhost:8080/ranking";
 
   constructor(
     private driverService: DriverService,
-    private racesService: RacesService
+    private activatedRoute: ActivatedRoute,
+
     ) { }
 
   ngOnInit(): void {
-    this.driverService.getDrivers(this.url).subscribe(
+    this.activatedRoute.params.subscribe(params=>{
+      let id: String= params['id'];
+      this.route=!id?"Rankin Global": "Ranking "+id;
+      let urlcorrect=!id?this.url:this.url+"?id="+id;
+    this.driverService.getDrivers(urlcorrect).subscribe(
       drivers=>this.drivers=drivers
     );
+    
+   
+  })
 
-    this.racesService.getraces().subscribe(
-      races=>this.races=races
-    );
   }
 
 }

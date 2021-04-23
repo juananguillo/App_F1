@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface DriverCard {
         "age": string;
         "global": number;
         "name": string;
@@ -15,18 +15,18 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDriverCardElement extends Components.DriverCard, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDriverCardElement: {
+        prototype: HTMLDriverCardElement;
+        new (): HTMLDriverCardElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "driver-card": HTMLDriverCardElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface DriverCard {
         "age"?: string;
         "global"?: number;
         "name"?: string;
@@ -34,14 +34,14 @@ declare namespace LocalJSX {
         "team"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "driver-card": DriverCard;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "driver-card": LocalJSX.DriverCard & JSXBase.HTMLAttributes<HTMLDriverCardElement>;
         }
     }
 }

@@ -1,15 +1,24 @@
-  
-  <p id="route">{{route}}</p>
-  <f1-table>
-    <tr slot="drivers" *ngFor="let driver of drivers; index as i">
-        <td><a href="#"><img class="minpic" src={{driver.picture}}></a></td>
-        <td *ngIf="i+1===1"><span style="font-size:25px">🥇</span></td>
-        <td *ngIf="i+1===2">🥈</td>
-        <td *ngIf="i+1===3">🥉</td>
-          <td *ngIf="i+1>3"> {{i+1}}</td>
-          <td>{{driver.name}}</td>
-          <td class="priority">{{driver.team}}</td>
-    </tr>
-      </f1-table>
-    
+<p id="route">Driver</p>
+<div class="container">
+    <div class="row">
+     
+      <div class="col-4">
+  <driver-card picture="{{driver.picture}}" name="{{driver.name}}" age="{{driver.age}}" 
+  team="{{driver.team}}" global="{{driver.posglobal}}">
 
+  </driver-card>
+</div>
+<div class="col-8">
+  <f1-table thone="Race" thtwo="Position" ththree="Time">
+    <tr slot="drivers" *ngFor="let race of driver.races;">
+      <td>{{race.name}}</td>
+      <td *ngIf="race.pos===1"><span style="font-size:25px">🥇</span></td>
+      <td *ngIf="race.pos===2">🥈</td>
+      <td *ngIf="race.pos===3">🥉</td>
+        <td *ngIf="race.pos>3"> {{race.pos}}</td>
+        <td>{{race.time}}</td>
+  </tr>
+      </f1-table>
+    </div>
+    </div>
+    </div>
