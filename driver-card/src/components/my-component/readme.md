@@ -10,7 +10,7 @@
 | Property  | Attribute | Description | Type     | Default     |
 | --------- | --------- | ----------- | -------- | ----------- |
 | `age`     | `age`     |             | `string` | `undefined` |
-| `global`  | `global`  |             | `number` | `undefined` |
+| `global`  | `global`  |             | `string` | `undefined` |
 | `name`    | `name`    |             | `string` | `undefined` |
 | `picture` | `picture` |             | `string` | `undefined` |
 | `team`    | `team`    |             | `string` | `undefined` |

@@ -13,12 +13,12 @@
     <th slot="thead">Race</th>
     <th slot="thead">Position</th>
     <th slot="thead">Time</th>
-    <tr slot="tbody" *ngFor="let race of driver.races;">
+    <tr [routerLink]="['/ranking/', race.name]" slot="tbody" *ngFor="let race of driver.races;">
       <td>{{race.name}}</td>
       <td *ngIf="race.pos===1"><span>🥇</span></td>
-      <td *ngIf="race.pos===2">🥈</td>
-      <td *ngIf="race.pos===3">🥉</td>
-        <td *ngIf="race.pos>3"> {{race.pos}}</td>
+      <td *ngIf="race.pos===2"><span>🥈</span></td>
+      <td *ngIf="race.pos===3"><span>🥉</span></td>
+        <td *ngIf="race.pos>3">&nbsp;{{race.pos}}</td>
         <td>{{race.time}}</td>
   </tr>
       </f1-table>

@@ -1,4 +1,4 @@
-import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-ad32d811.js';
+import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-73a8c5bb.js';
 import { g as globalScripts } from './app-globals-0f993ce5.js';
 
 /*
@@ -118,5 +118,5 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["driver-card",[[1,"driver-card",{"picture":[1],"name":[1],"age":[1],"team":[1],"global":[2]}]]]], options);
+  return bootstrapLazy([["driver-card",[[1,"driver-card",{"picture":[1],"name":[1],"age":[1],"team":[1],"global":[1]}]]]], options);
 });

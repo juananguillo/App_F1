@@ -15,7 +15,6 @@ export class RankingComponent implements OnInit {
 
   route: String="";
   drivers: IDriver[] = [];
-  races: String[]=[];
   url= "http://localhost:8080/ranking";
 
   constructor(

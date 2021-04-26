@@ -20,23 +20,11 @@ table {
   width: 70%;
 }
 
-[name="thead"]::slotted(.minpic){
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border-radius: 40px;
-}
 
 ::slotted(tr:hover) {
   color: green;
   transform: translateX(10%);
 }
-
-
-tr td:nth-child(2) {
-  padding-right:15px;
-} 
-
 
  
 
@@ -60,10 +48,6 @@ tr td:nth-child(2) {
   .priority{
       display: none;
   }
-  tr:first-child th:nth-child(2) {
-    border-bottom-right-radius: 150px;
-  }
-
   table{
     width: 80%;
   }

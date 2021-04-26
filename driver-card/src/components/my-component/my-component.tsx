@@ -13,21 +13,23 @@ export class MyComponent {
   @Prop() name: string;
   @Prop() age: string;
   @Prop() team: string;
-  @Prop() global: number;
+  @Prop() global: string;
 
  
 
   render() {
-  let pos: string| number="";
+  let pos: string;
+  console.log(this.global);
   switch (this.global) {
-    case 1:
+    case "1":
       pos="🥇";
       break;
-   case 2:
+   case "2":
      pos="🥈";
-  
-   case 3:
+  break;
+   case "3":
      pos="🥉";
+     break;
     default:
       pos=this.global;
       break;

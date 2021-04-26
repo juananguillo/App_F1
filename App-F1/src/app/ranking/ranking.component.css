@@ -7,9 +7,29 @@ th:first-child{
   text-align: center;
 }
 
+
 td:nth-child(2){
-  padding-right:15px;
+  padding-right:25px;
 } 
+
+
+th:nth-child(2){
+  text-align: center;
+} 
+
+td:nth-child(3){
+text-align: center;
+} 
+
+th:nth-child(3){
+  text-align: center;
+} 
+
+td:nth-child(4){
+  text-align: center;
+  } 
+
+
 
  tr{
   cursor: pointer;
@@ -28,6 +48,12 @@ tr>td>img{
   .priority{
       display: none;
   }
+
+  th:nth-child(2){
+    border-bottom-right-radius: 150px;
+    } 
+    
+
 }
 
 a {
@@ -45,4 +71,8 @@ a {
 td{
   padding: 6px;
   
+}
+
+span{
+  font-size: 16px;
 }

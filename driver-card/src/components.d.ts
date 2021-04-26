@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DriverCard {
         "age": string;
-        "global": number;
+        "global": string;
         "name": string;
         "picture": string;
         "team": string;
@@ -28,7 +28,7 @@ declare global {
 declare namespace LocalJSX {
     interface DriverCard {
         "age"?: string;
-        "global"?: number;
+        "global"?: string;
         "name"?: string;
         "picture"?: string;
         "team"?: string;

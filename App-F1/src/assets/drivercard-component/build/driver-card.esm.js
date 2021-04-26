@@ -1,1 +1,1 @@
-import{p as r,b as a}from"./p-7a164675.js";(()=>{const a=import.meta.url,e={};return""!==a&&(e.resourcesUrl=new URL(".",a).href),r(e)})().then((r=>a([["p-5081360d",[[1,"driver-card",{picture:[1],name:[1],age:[1],team:[1],global:[2]}]]]],r)));
+import{p as a,b as r}from"./p-aa04bfe8.js";(()=>{const r=import.meta.url,e={};return""!==r&&(e.resourcesUrl=new URL(".",r).href),a(e)})().then((a=>r([["p-d53b1a29",[[1,"driver-card",{picture:[1],name:[1],age:[1],team:[1],global:[1]}]]]],a)));
