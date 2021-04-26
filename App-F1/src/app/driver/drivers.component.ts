@@ -3,15 +3,19 @@ import { DriverService } from './driver.service';
 import { IDriver } from '../clases/Idriver';
 import{ Router, ActivatedRoute, Params} from '@angular/router';
 import { compileNgModule } from '@angular/compiler';
+import {rubberBandAnimation } from 'angular-animations';
 
 
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.css']
+  styleUrls: ['./drivers.component.css'],
+  animations:[
+    rubberBandAnimation(), 
+  ]
 })
 export class DriversComponent implements OnInit {
-
+  rubber = false;
   driver= {} as IDriver;
   url= "http://localhost:8080/driver";
   

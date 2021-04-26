@@ -3,12 +3,28 @@ import { ActivatedRoute } from '@angular/router';
 import { IDriver } from '../clases/Idriver';
 import { DriverService } from '../driver/driver.service';
 import { RacesService } from '../races/races.service';
+import {trigger, style, transition, animate, state} from '@angular/animations';
 
 
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.css'],
+  animations: [
+    trigger('enterState',[
+      state('void', style({
+        transform: 'translateX(-100%)',
+        opacity:0
+      })),
+      transition(':enter',[
+        animate(400, style({
+          transform: 'translateX(0)',
+          opacity: 1
+        }))
+
+      ])
+    ])
+  ]
 })
 export class RankingComponent implements OnInit {
 

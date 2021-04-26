@@ -1,8 +1,8 @@
-<h1 class="text-center">
-  <span class="text1">F</span>
+<h1 @enterState class="text-center">
+  <span  class="text1">F</span>
   <span class="text2">ormula</span> &nbsp;
-  <span class="text1">1</span>&nbsp; 
-  <span class="text1">C</span>
+  <span  class="text1">1</span>&nbsp; 
+  <span  class="text1">C</span>
   <span class="text2">HAMPIONSHIP</span></h1>
 <br>
 <button-races *ngIf="!router.url.includes('driver')">
@@ -10,4 +10,4 @@
     <a slot="buttonraces" *ngFor="let race of races" class="nav-item nav-link" [routerLink]="['/ranking/', race]" >{{race}}</a>
   </button-races>
 
-  <button id="back" (click)="back();" *ngIf="router.url.includes('driver')">Return Back</button>
+  <button id="back" (click)="back();" *ngIf="router.url.includes('driver')">Back</button>
