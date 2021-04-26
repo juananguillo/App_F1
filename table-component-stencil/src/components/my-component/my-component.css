@@ -11,19 +11,16 @@ table thead tr th {
 }
 
 
-table thead tr th:first-child{
-  text-align: center;
-  }
- 
+
 table {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
   border-collapse: collapse;
- 
+  width: 70%;
 }
 
-.tablacont .minpic{
+[name="thead"]::slotted(.minpic){
   width: 30px;
   height: 30px;
   border-radius: 10px;
@@ -42,17 +39,21 @@ tr td:nth-child(2) {
 
 
  
-::slotted(tr:nth-child(even))  {
+
+[name="thead"]::slotted(th:nth-child(1))  {
+  border-top-left-radius: 150px;
+  text-align: center;
+}
+
+[name="thead"]::slotted(th:nth-child(3))  {
+  border-bottom-right-radius: 150px;
+}
+
+[name="tbody"]::slotted(tr:nth-child(even))  {
   background-color: #dddddd;
 }
  
-tr:first-child th:first-child {
-  border-top-left-radius: 150px;
-}
- 
-tr:first-child th:last-child {
-  border-bottom-right-radius: 150px;
-}
+
 
 
 @media (max-width:600px) {
@@ -64,7 +65,7 @@ tr:first-child th:last-child {
   }
 
   table{
-    width: 70%;
+    width: 80%;
   }
 
 }

@@ -4,3 +4,5 @@
     <a slot="buttonraces" class="nav-item nav-link" [routerLink]="['/ranking/']" >Global</a>
     <a slot="buttonraces" *ngFor="let race of races" class="nav-item nav-link" [routerLink]="['/ranking/', race]" >{{race}}</a>
   </button-races>
+
+  <button id="back" (click)="back();" *ngIf="router.url.includes('driver')">Return Back</button>

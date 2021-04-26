@@ -1,23 +1,32 @@
 td:nth-child(2){
-    padding-right:40px;
+  padding-right: 20px;
   } 
 
+  th:first-child{
+    padding-left:20px;
+  }
 
-tr>td>a>img{
-    width: 30px;
-    height: 30px;
-   
-    border-radius: 10px;
-    border-radius: 40px;
+  #tabledriver{
+     
+  }
+ 
+
+td{
+    padding: 10px;
+    
 }
 
 .styled-table{
-    width: 100%;
+
 }
 
-@media (max-width:600px) {
+@media (max-width:500px) {
     .priority{
         display: none;
+    }
+
+    .container{
+        max-width: 700px;
     }
 }
 
@@ -34,5 +43,5 @@ a {
   }
 
   .container{
-      height: 650px;
+      height: 550px;
   }

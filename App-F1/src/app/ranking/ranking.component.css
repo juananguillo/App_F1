@@ -1,4 +1,12 @@
 
+.tablacont{
+  width: 200px;
+}
+
+th:first-child{
+  text-align: center;
+}
+
 td:nth-child(2){
   padding-right:15px;
 } 
@@ -30,7 +38,11 @@ a {
 }
 
   #route{
-    margin-left: 27%;
+    margin-left: 20%;
     color: green;
 }
 
+td{
+  padding: 6px;
+  
+}

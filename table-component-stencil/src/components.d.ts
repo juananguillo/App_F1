@@ -7,9 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface F1Table {
-        "thone": string;
-        "ththree": string;
-        "thtwo": string;
     }
 }
 declare global {
@@ -25,9 +22,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface F1Table {
-        "thone"?: string;
-        "ththree"?: string;
-        "thtwo"?: string;
     }
     interface IntrinsicElements {
         "f1-table": F1Table;

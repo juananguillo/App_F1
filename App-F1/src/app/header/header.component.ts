@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RacesService } from '../races/races.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private racesService: RacesService,
-    private activatedRoute: ActivatedRoute, 
-    public router: Router
+    public router: Router,
+    private location: Location
     ) { }
 
   ngOnInit(): void {
@@ -22,6 +23,10 @@ export class HeaderComponent implements OnInit {
     this.racesService.getraces().subscribe(
       races=>this.races=races
     );
+  }
+
+  back(): void {
+    this.location.back();
   }
 
 }
