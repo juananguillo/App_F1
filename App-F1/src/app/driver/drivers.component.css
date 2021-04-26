@@ -46,7 +46,7 @@ span{
 
 @media (max-width:1000px) {
     .container{
-        margin-bottom: 400px;
+        margin-bottom: 450px;
     }
   
 
@@ -66,7 +66,7 @@ a {
   }
 
   .container{
-      height: 550px;
+      height: 500px;
   }
 
   tr{
