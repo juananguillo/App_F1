@@ -1,23 +1,23 @@
-<p id="route">Driver</p>
+<p [@bounce]="animationState"  id="route">Driver Seasson Results</p>
 <div class="container">
     <div class="row">
      
-      <div class="col-sm-12 col-md-12 col-lg-4">
-  <driver-card picture="{{driver.picture}}" name="{{driver.name}}" age="{{driver.age}}" 
+      <div  class="col-sm-12 col-md-4 col-lg-4">
+  <driver-card  [@zoomIn]="animationState"  picture="{{driver.picture}}" name="{{driver.name}}" age="{{driver.age}}" 
   team="{{driver.team}}" global="{{driver.posglobal}}">
 
   </driver-card>
 </div>
-<div id="tabledriver" class="col-sm-12 col-md-12 col-lg-7">
+<div id="tabledriver" class="col-sm-12 col-md-7 col-lg-7">
   <f1-table>
     <th slot="thead">Race</th>
     <th slot="thead">Position</th>
     <th slot="thead">Time</th>
-    <tr [routerLink]="['/ranking/', race.name]" slot="tbody" *ngFor="let race of driver.races;">
+    <tr @enterState  [routerLink]="['/ranking/', race.name]" slot="tbody" *ngFor="let race of driver.races;">
       <td>{{race.name}}</td>
-      <td *ngIf="race.pos===1"><span>🥇</span></td>
-      <td *ngIf="race.pos===2"><span>🥈</span></td>
-      <td *ngIf="race.pos===3"><span>🥉</span></td>
+      <td *ngIf="race.pos===1"><span class="medall">🥇</span></td>
+      <td *ngIf="race.pos===2"><span  class="medall">🥈</span></td>
+      <td *ngIf="race.pos===3"><span  class="medall">🥉</span></td>
         <td *ngIf="race.pos>3">&nbsp;{{race.pos}}</td>
         <td>{{race.time}}</td>
   </tr>

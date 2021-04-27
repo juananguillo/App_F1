@@ -34,19 +34,22 @@ span{
 
 }
 
-@media (max-width:500px) {
+@media (max-width:550px) {
     .priority{
         display: none;
     }
 
     .container{
         max-width: 700px;
+        margin-bottom: 450px;
     }
+
+
 }
 
-@media (max-width:1000px) {
+@media (min-width:550px) and (max-width:1024px) {
     .container{
-        margin-bottom: 400px;
+        margin-bottom: 300px;
     }
   
 
@@ -66,9 +69,13 @@ a {
   }
 
   .container{
-      height: 550px;
+      height: 500px;
   }
 
   tr{
     cursor: pointer;
+  }
+
+  .medall{
+    font-size: 20px;
   }

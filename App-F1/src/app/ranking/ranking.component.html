@@ -1,15 +1,16 @@
-<p id="route">{{route}}</p>
+<p [@bounce]="animationState"  id="route">{{route}}</p>
+
 <f1-table>
   <th colspan="2" slot="thead">Rank</th>
   <th slot="thead">Name</th>
   <th class="priority" slot="thead">Team</th>
-  <tr [routerLink]="['/driver/', driver._id]" slot="tbody" *ngFor="let driver of drivers; index as i">
+  <tr @enterState  [routerLink]="['/driver/', driver._id]" slot="tbody" *ngFor="let driver of drivers; index as i">
       <td><img class="minpic" src={{driver.picture}}></td>
-      <td *ngIf="i+1===1"><span>  &nbsp;&nbsp; 🥇</span></td>
-      <td *ngIf="i+1===2"><span>  &nbsp;&nbsp; 🥈</span></td>
-      <td *ngIf="i+1===3"><span>  &nbsp;&nbsp; 🥉</span></td>
+      <td *ngIf="i+1===1"><span class="medall">🥇</span></td>
+      <td *ngIf="i+1===2"><span  class="medall">🥈</span></td>
+      <td *ngIf="i+1===3"><span  class="medall">🥉</span></td>
      
-        <td *ngIf="i+1>3"><span>  &nbsp;&nbsp;&nbsp; {{i+1}}</span></td>
+        <td *ngIf="i+1>3"><span> &nbsp; {{i+1}}</span></td>
         <td>{{driver.name}}</td>
         <td class="priority">{{driver.team}}</td>
       
