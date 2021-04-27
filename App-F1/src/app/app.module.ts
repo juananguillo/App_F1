@@ -6,7 +6,6 @@ import { FooterComponent } from './footer/footer.component';
 import { DriversComponent } from './driver/drivers.component';
 import { RacesComponent } from './races/races.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ButtonracesComponent } from './buttonraces/buttonraces.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -19,7 +18,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     FooterComponent,
     DriversComponent,
     RacesComponent,
-    ButtonracesComponent,
     RankingComponent,
    
   ],

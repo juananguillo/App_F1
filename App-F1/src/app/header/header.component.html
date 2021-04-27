@@ -1,9 +1,11 @@
-<h1 @enterState class="text-center">
+<div>
+<h1  [@lightSpeedIn]="animationState" class="text-center">
   <span  class="text1">F</span>
   <span class="text2">ormula</span> &nbsp;
   <span  class="text1">1</span>&nbsp; 
   <span  class="text1">C</span>
   <span class="text2">HAMPIONSHIP</span></h1>
+</div>
 <br>
 <button-races *ngIf="!router.url.includes('driver')">
     <a slot="buttonraces" class="nav-item nav-link" [routerLink]="['/ranking/']" >Global</a>

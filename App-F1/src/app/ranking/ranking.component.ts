@@ -2,8 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IDriver } from '../clases/Idriver';
 import { DriverService } from '../driver/driver.service';
-import { RacesService } from '../races/races.service';
 import {trigger, style, transition, animate, state} from '@angular/animations';
+import {bounceAnimation} from 'angular-animations';
+
 
 
 @Component({
@@ -23,7 +24,8 @@ import {trigger, style, transition, animate, state} from '@angular/animations';
         }))
 
       ])
-    ])
+    ]),
+    bounceAnimation()
   ]
 })
 export class RankingComponent implements OnInit {
@@ -32,6 +34,8 @@ export class RankingComponent implements OnInit {
   route: String="";
   drivers: IDriver[] = [];
   url= "http://localhost:8080/ranking";
+  animationState = false;
+  private animationWithState = false;
 
   constructor(
     private driverService: DriverService,
@@ -47,6 +51,11 @@ export class RankingComponent implements OnInit {
     this.driverService.getDrivers(urlcorrect).subscribe(
       drivers=>this.drivers=drivers
     );
+    this.animationState = false;
+    setTimeout(() => {
+      this.animationState = true;
+      this.animationWithState = !this.animationWithState;
+    }, 1);
     
    
   })
